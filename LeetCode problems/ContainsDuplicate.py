@@ -23,7 +23,7 @@ def containsDuplicate(nums):
 def containsDuplicate(nums):
 	if len(nums)==0:
 		return False
-	if(collection.Counter(nums).most_common(1)[0][0] > 1):
+	if(collections.Counter(nums).most_common(1)[0][0] > 1):
 		return True
 	else:
 		return False
