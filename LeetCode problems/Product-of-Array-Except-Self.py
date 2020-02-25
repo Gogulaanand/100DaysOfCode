@@ -22,4 +22,21 @@ class Solution:
             l.append(reduce((lambda x,y:x*y), list_copy))
         return l
 
-#Sol 2:
+#Sol 2: 
+#multiply every number to the left of the target in 1st pass and then everything to the right in second pass
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        p = 1
+        output = []
+        n = len(nums) 
+        for i in range(n):
+            output.append(p)
+            p *= nums[i]
+        p = 1
+        for i in range(n-1, -1, -1):
+            output[i] *= p
+            p *=nums[i]
+        return output
+            
+            
