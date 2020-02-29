@@ -27,3 +27,30 @@ class Solution:
             else:
                 out.append(i)
         return length-len(out)
+
+
+# https://leetcode.com/problems/valid-parentheses/
+# Valid Parentheses
+#Solution:
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s)==0:
+            return True
+        elif len(s)==1:
+            return False
+        pairs = {'(':')','[':']','{':'}'}
+        open = ['(','[','{']
+        close = [')',']','}']
+        l=[]
+        for item in s:
+            if item in open: 
+                l.append(item)
+            elif item in close:
+                if l and pairs[l[-1]]==item:
+                    l.pop()
+                else:
+                    return False
+        if len(l)==0:
+            return True
+        else:
+            return False
