@@ -92,16 +92,20 @@ print(flag)
 
 
 #Sol3: O(n)
-dict = {}
-for i in range(len(nums)):
-    current = nums[i]
-    if current in dict:
-        flag = True
-        break
-    else:
-        dict[target-nums[i]] = nums[i]
-        print(dict)
-print(flag)
+def twoSum(num_array, sum):
+    nums = num_array
+    target = sum
+    dict = {}
+    for i in range(len(nums)):
+        current = nums[i]
+        if current in dict:
+            return True
+        else:
+            dict[target-nums[i]] = nums[i]
+            
+assert twoSum([10,2,7,5],15)
+assert not twoSum([1,1,2,3],6)
+assert twoSum([10,8,12,8],16)
 
 
 
