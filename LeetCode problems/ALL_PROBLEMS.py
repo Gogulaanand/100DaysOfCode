@@ -40,7 +40,7 @@ class Solution:
         close = [')',']','}']
         l=[]
         for item in s:
-            if item in open: 
+            if item in open:
                 l.append(item)
             elif item in close:
                 if l and pairs[l[-1]]==item:
@@ -54,7 +54,7 @@ class Solution:
 
 
 
-# Two sum problem:            
+# Two sum problem:
 # Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 
 # For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
@@ -77,7 +77,7 @@ for i in range(len(nums)):
 print(flag)
 
 
-#Sol 2: 
+#Sol 2:
 #still O(n2)
 nums = [1, 12, 5, 7]
 target = 14
@@ -102,7 +102,7 @@ def twoSum(num_array, sum):
             return True
         else:
             dict[target-nums[i]] = nums[i]
-            
+
 assert twoSum([10,2,7,5],15)
 assert not twoSum([1,1,2,3],6)
 assert twoSum([10,8,12,8],16)
@@ -131,7 +131,7 @@ class Solution:
             l = nums[:]
             l.pop(i)
             current = nums[i]
-            count = 0 
+            count = 0
             for item in l:
                 if item<current and item!=current:
                     count+=1
@@ -141,3 +141,32 @@ class Solution:
 
 
 
+# https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+# Number of Steps to Reduce a Number to Zero
+
+# Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+
+# Example 1:
+
+# Input: num = 14
+# Output: 6
+# Explanation:
+# Step 1) 14 is even; divide by 2 and obtain 7.
+# Step 2) 7 is odd; subtract 1 and obtain 6.
+# Step 3) 6 is even; divide by 2 and obtain 3.
+# Step 4) 3 is odd; subtract 1 and obtain 2.
+# Step 5) 2 is even; divide by 2 and obtain 1.
+# Step 6) 1 is odd; subtract 1 and obtain 0.
+
+# Sol:
+
+class Solution:
+    def numberOfSteps (self, num: int) -> int:
+        count = 0
+        while num!=0:
+            if num%2==0:
+                num/=2
+            else:
+                num-=1
+            count+=1
+        return count
